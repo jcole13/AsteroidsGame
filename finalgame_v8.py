@@ -4,7 +4,7 @@ import os, sys, random, itertools, time          # for join: creates system-inde
 import pygame
 from pygame.locals import *
 FPS = 40
-
+#Sets up preliminary values
 BLACK = pygame.Color(0, 0, 0)
 WHITE = pygame.Color(255, 255, 255)
 RED = pygame.Color(255, 0, 0)
@@ -37,7 +37,7 @@ def load_background(file):
     except pygame.error:
         raise SystemExit('Could not load image "%s" %s'%(file, pygame.get_error()))
     return surface.convert()
-
+#Allc classes are pygame sprites
 class SmallAsteroid(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
@@ -298,7 +298,7 @@ def main():
     
 
 
-
+#Preliminary values
     gameover = False
     sprites = pygame.sprite.Group()
     coins = pygame.sprite.Group()
@@ -309,7 +309,7 @@ def main():
     bosses=pygame.sprite.Group()
     start = True
     highscorewritten = False
-
+#Loop  for the intro screen
     while start == True:
         bgmusic.play()
         window.fill(BLACK)
@@ -319,7 +319,7 @@ def main():
         text_rect = text.get_rect()
         text_rect.center= (WIDTH -150, 30)
         window.blit(text, text_rect)
-
+#Checks click on one player to start game
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
@@ -338,7 +338,7 @@ def main():
     
 
 
-
+#Main game loop
     music = True
     while True:
         # 1. Render the world
